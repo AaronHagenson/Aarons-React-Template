@@ -3,6 +3,8 @@ import InputPreview from '../components/InputPreview';
 import {connect} from 'react-redux';
 import {setMessage} from '../actions/message';
 import {Link} from 'react-router-dom';
+import {Navbar} from '../components/Navbar';
+import {Footer} from '../components/Footer';
 
 class App extends Component {
 
@@ -16,12 +18,14 @@ class App extends Component {
 
         return (
         	<div>
+                <Navbar />
                 <InputPreview
                     value={message}
                     onChange={this._onChange}/>
                 <Link to="/about">
                     <button>Go to About</button>
                 </Link>
+                <Footer /> 
             </div>
         )
     }

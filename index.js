@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import './styles.scss'
+
 
 // main routes
 import AppRoutes from './routes';
