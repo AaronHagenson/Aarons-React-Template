@@ -5,6 +5,7 @@ import {setMessage} from '../actions/message';
 import {Link} from 'react-router-dom';
 import {Navbar} from '../components/Navbar';
 import {Footer} from '../components/Footer';
+import {LandingComponent} from '../components/Landing';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
         return (
         	<div>
                 <Navbar />
+                <LandingComponent />
                 <InputPreview
                     value={message}
                     onChange={this._onChange}/>

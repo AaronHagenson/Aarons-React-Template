@@ -1,13 +1,23 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import messageReducer from './reducers/message'
-import thunk from 'redux-thunk'
+import createSagaMiddleware from 'redux-saga'
+
+import mySaga from './sagas'
 
 const reducer = combineReducers({
   messageReducer
 })
+// const store = createStore(
+//   reducer,
+//   applyMiddleware(thunk)
+// )
+
+const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
   reducer,
-  applyMiddleware(thunk)
+  applyMiddleware(sagaMiddleware)
 )
+
+sagaMiddleware.run(mySaga);
 
 export default store;
