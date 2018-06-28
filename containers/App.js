@@ -9,24 +9,26 @@ import {LandingComponent} from '../components/Landing';
 
 class App extends Component {
 
-	_onChange = (value) => {
-		this.props.dispatch(setMessage(value))
-	}
+	// _onChange = (value) => {
+	// 	this.props.dispatch(setMessage(value))
+	// }
 
     render () {
 
-    	const {message} = this.props.messageReducer;
+        //const {message} = this.props.messageReducer;
+        const preps = this.props;
+        const strt = this.state;
 
         return (
         	<div>
                 <Navbar />
                 <LandingComponent />
-                <InputPreview
+                {/* <InputPreview
                     value={message}
                     onChange={this._onChange}/>
                 <Link to="/about">
                     <button>Go to About</button>
-                </Link>
+                </Link> */}
                 <Footer /> 
             </div>
         )
@@ -34,3 +36,4 @@ class App extends Component {
 }
 
 export default connect(state => state)(App);
+//export default App;

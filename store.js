@@ -1,11 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import messageReducer from './reducers/message'
 import createSagaMiddleware from 'redux-saga'
 
-import mySaga from './sagas'
+import {rootSaga} from './root-saga'
+import messageReducer from './reducers/message'
+import quotesReducer from './reducers/quotes-reducer'
 
 const reducer = combineReducers({
-  messageReducer
+  messageReducer,
+  quotesReducer
 })
 // const store = createStore(
 //   reducer,
@@ -18,6 +20,6 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 )
 
-sagaMiddleware.run(mySaga);
+sagaMiddleware.run(rootSaga);
 
 export default store;
