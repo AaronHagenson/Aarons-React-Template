@@ -40,7 +40,7 @@ export class Landing extends Component {
             <div>
                 {/* <img id="fullBand" src={pic} height='100px' className="bg-image" /> */}
                 <button onClick={this.buttonClick}>Click Me</button>
-                <p>Quote Count: {this.props.quotes ? this.props.quotes.length() : "Nada"}</p>
+                <p>Quote Count: {this.props.quotes ? "Yeah" : "Nada"}</p>
                 <button onClick={this.getQuotes}>Get Quotes</button>
             </div>
         )
@@ -48,7 +48,8 @@ export class Landing extends Component {
 };
 
 const mapStateToProps = (state) => ({
-    quotes: state.quotes
+    // quotes: state.quotes
+    quotes: state.quotesReducer.quotes
 });
 
 const mapDispatchToProps = dispatch => ({
