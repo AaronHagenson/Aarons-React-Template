@@ -1,27 +1,8 @@
 import React, {Component} from 'react';
-import pic from '../images/schlapper.jpg';
 import {connect} from 'react-redux';
 
 
 export class Landing extends Component {
-    // state = {
-    //     quotes: []
-    // };
-
-    componentDidMount() {
-        console.log("componentDidMount")
-        //this.props.getQuotes();
-    }
-
-    componentWillMount() {
-        console.log("componentWillMount");
-    }
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if(nextProps.quotes) {
-            return { ...prevState.state, quotes: nextProps.quotes}
-        }
-    }
 
     buttonClick = () => {
         this.props.createQuote();
@@ -33,14 +14,16 @@ export class Landing extends Component {
 
     render() {
 
-        let perps = this.props;
-        let trt = this.state;
+        const rows = this.props.quotes.map((q) =>        
+            <li key={q._id}>Name: {q.name}  Quote: {q.quote}</li>          
+        );
 
         return (
             <div>
-                {/* <img id="fullBand" src={pic} height='100px' className="bg-image" /> */}
-                <button onClick={this.buttonClick}>Click Me</button>
-                <p>Quote Count: {this.props.quotes ? "Yeah" : "Nada"}</p>
+                <p>Quote Count: {this.props.quotes ? this.props.quotes.length : "Nada"}</p>
+                <ul>
+                {rows}
+                </ul>
                 <button onClick={this.getQuotes}>Get Quotes</button>
             </div>
         )
@@ -48,7 +31,6 @@ export class Landing extends Component {
 };
 
 const mapStateToProps = (state) => ({
-    // quotes: state.quotes
     quotes: state.quotesReducer.quotes
 });
 
@@ -62,8 +44,3 @@ export const LandingComponent =  connect(
     mapStateToProps,
     mapDispatchToProps    
 )(Landing);
-
-// export default connect(
-//     mapStateToProps,
-//     mapDispatchToProps    
-// )(Landing);
