@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Navbar} from '../components/Navbar';
 import {Footer} from '../components/Footer';
-import {LandingComponent} from '../components/Landing';
+import {LandingComponent} from '../containers/Landing';
 
 class App extends Component {
 
